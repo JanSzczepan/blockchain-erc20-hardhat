@@ -10,8 +10,9 @@ export default async function verify(
       await run('verify:verify', {
          address,
          constructorArguments,
+         contract: 'contracts/MyToken.sol:MyToken',
       })
-   } catch (error) {
+   } catch (error: any) {
       if (error.message.toLowerCase().includes('already verified')) {
          console.log('Already verified!')
       } else {
